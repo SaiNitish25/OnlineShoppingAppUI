@@ -1,0 +1,71 @@
+<mat-toolbar color="primary" >
+    <a class="head"routerLink="/login" > Online Shopping APP</a>
+   </mat-toolbar>
+<div class="container mt-3 content">
+    <header style="color: black;">Register</header>
+    <div class="row center-xs mt-3">
+        <div class="col-xs-6">
+            <form  #form="ngForm" (ngSubmit)="register()"> 
+                <div class="row">
+                    <div class="col-xs-6">
+                        <mat-form-field>
+                            <mat-label>First Name </mat-label>
+                            <input type="text" required matInput name ="fn" #fn="ngModel" [(ngModel)]="newCust.firstName" [class.is-invalid]="fn.untouched" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-xs-6">
+                        <mat-form-field>
+                            <mat-label>Last Name </mat-label>
+                            <input type="text" required matInput [(ngModel)]="newCust.lastName" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <mat-form-field>
+                            <mat-label>Password </mat-label>
+                            <input class="form-control" type="password" pattern="^[a-zA-Z0-9_!@#$%^&*\s,-]{6,}" required matInput name="password" #password="ngModel" [(ngModel)]="newCust.password" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                        <mat-error *ngIf="password.touched && password.invalid">Password pattern invalid</mat-error>
+                    </div>
+                    <div class="col-xs-6">
+                        <mat-form-field>
+                            <mat-label>Confirm Password </mat-label>
+                            <input type="password" required matInput name="confirmPassword"validateEqual="password"  #confirmPassword="ngModel" [(ngModel)]="newCust.confirmPassword" [ngModelOptions]="{standalone: true}">
+                            
+   
+                        </mat-form-field>
+                        <mat-error *ngIf="confirmPassword.touched && newCust.password!=newCust.confirmPassword">password mismatch</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <mat-form-field>
+                            <mat-label>Email </mat-label>
+                            <input type="email" required  matInput [(ngModel)]="newCust.email" [ngModelOptions]="{standalone: true}">
+                            
+                        </mat-form-field>
+                    </div>
+                    <div class="col-xs-6">
+                        <mat-form-field>
+                            <mat-label>Mobile </mat-label>
+                            <input type="number" required matInput [(ngModel)]="newCust.contactNumber" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary" >Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+

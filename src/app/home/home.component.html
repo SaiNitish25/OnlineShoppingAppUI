@@ -1,0 +1,84 @@
+<mat-toolbar  color="primary" >
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <a class="mainHead" routerLink="">Online Shopping APP</a>
+            </div>
+            <div class="col-xs-2" >
+                <button  mat-button class="color" class="menu" (click)="addProduct()" *ngIf="isAdmin">Add Product</button>
+            </div>
+            <div class="col-xs-2" >
+                <button  mat-button class="color" class="menu" (click)="orders()" *ngIf="isAdmin">Orders</button>
+            </div>
+            <div class="col-xs-2">
+                <button  mat-button class="color" class="menu" (click)="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+    
+</mat-toolbar>
+
+
+<!--<div class="container mt-3 " >
+    <div class="row content" *ngFor="let prod of products">
+        <div class="col-xs-12">
+            <div class="row prodHead">
+                <div class="col-xs-6">
+                    {{prod.productName}}
+                </div>
+                <div class="col-xs-2">
+                    {{prod.price}}
+                </div>
+                <div class="col-xs-4">
+                    <a mat-button [routerLink]="['/product/',prod.id]" color="primary">
+                        <mat-icon>visibility</mat-icon></a>
+                    <a mat-button routerLink="" color="primary" *ngIf="isAdmin"><mat-icon>edit</mat-icon></a>
+                    <a mat-button routerLink="" color="primary" *ngIf="isAdmin"><mat-icon>delete</mat-icon></a>
+                 </div>
+                
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="row end-xs mt-3 ml-3">
+    <div class="col-xs-6">
+        <mat-form-field>
+        <input type="text" [(ngModel)]="productName" matInput  placeholder="Search by productName"/>
+    </mat-form-field>
+    </div>
+</div>
+
+
+
+
+<div class="container mt-3 " >
+    <table   class="center" id= "table-id">  
+        <tr class="content prodHead" *ngFor="let prod of products  | customerEmailFilter:productName">
+            <td > 
+                {{prod.productName}}
+            </td>
+            <td>
+                {{prod.price}}
+            </td>
+            <td>
+                <a mat-button [routerLink]="['/product/',prod.id]" color="primary">
+                    <mat-icon>visibility</mat-icon></a>
+            </td>
+            <td>
+                <button mat-button  color="primary" *ngIf="isAdmin" (click)="updProdStat(prod.id)"><mat-icon>update</mat-icon></button>
+            </td>
+            <td>
+                <a mat-button routerLink="" color="primary" *ngIf="isAdmin" (click)="delete(prod.id)"><mat-icon>delete</mat-icon></a>
+            </td>
+        </tr>
+
+
+    </table>
+</div>
+
+
+
+
+
+

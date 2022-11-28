@@ -1,0 +1,27 @@
+<mat-toolbar color="primary" >Online Shopping APP</mat-toolbar>
+
+
+<div class="content" >
+    <header style="color: black;">LOGIN</header>
+    <form #logForm="ngForm"  novalidate >
+        <div>
+            <span class="fa fa-user"></span>
+            <mat-form-field appearance="legacy">
+                <mat-label>Email</mat-label>
+                <input type="email" required name="email"    matInput [(ngModel)]="Customer.email" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+        </div>
+        <div>
+            <span class="fa fa-lock"></span>
+            <mat-form-field appearance="legacy">
+                <mat-label>Password</mat-label>
+                <input type="password"name="password" required matInput [(ngModel)]="Customer.password" [ngModelOptions]="{standalone: true}"> 
+            </mat-form-field>
+        </div>
+        <button type="submit" mat-raised-button color="primary" [disabled] (click)="submit()">Login</button>
+        <div class="mt-1">
+          <a routerLink="/forgot">Forgot password</a>
+          <p>Don't have an account <a routerLink="/register">Register here</a></p>
+        </div>
+    </form>
+  </div>

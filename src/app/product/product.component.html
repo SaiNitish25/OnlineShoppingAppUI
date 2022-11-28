@@ -1,0 +1,44 @@
+<mat-toolbar  color="primary" >
+    <div class="row">
+        <div class="col-xs-6">
+            <a class="mainHead" routerLink="">Online Shopping APP</a>
+        </div>
+        <div class="col-xs-6 end-xs">
+            <button  mat-button class="color" (click)="logout()">Logout</button>
+        </div>
+    </div>
+</mat-toolbar>
+<div class="container">
+
+    <div class="row" >
+        <div class="col-xs-12">
+            <div class="row prodHead">
+                <div class="col-xs-8">
+                        {{product.productName}}
+                </div>
+                <div class="col-xs-4">
+                    {{product.price|currency:'INR'}}
+                </div>
+            </div>
+            <div class="row prodDesc">
+                <div class="col-xs-8 ">
+                        {{product.productDescription}}
+                </div>
+                <div class="col-xs-4 prodStat">
+                    {{product.productStatus}}
+                </div>
+            </div>
+            
+            <div class="row prodFeat">
+                <div class="col-xs-8">
+                        {{product.features}}
+                </div>
+                <div class="col-xs-4">
+                    <button mat-raised-button (click)="order()" color="primary">Order</button>
+            </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>

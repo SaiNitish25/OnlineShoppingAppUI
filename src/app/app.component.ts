@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'OnlineShoppingApp_UI';
+  ngOnInit(): void {
+    sessionStorage.setItem("isLoggedIn", "no");
+  }
 }

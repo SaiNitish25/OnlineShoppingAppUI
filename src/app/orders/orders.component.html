@@ -1,0 +1,33 @@
+<mat-toolbar  color="primary" >
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <a class="mainHead" routerLink="">Online Shopping APP</a>
+            </div>
+            
+            <div class="col-xs-2">
+                <button  mat-button class="color" (click)="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+    
+</mat-toolbar>
+
+<div class="container mt-3 " >
+    <table   class="center " id= "table-id">  
+        <th>Customer</th>
+        <th>Product Name</th>
+        <th>Date</th>
+        <tr class=" prodHead content" *ngFor="let ord of order">
+            <td> 
+                {{ord.email}}
+            </td>
+            <td>
+                {{ord.productName}}
+            </td>
+            <td>
+                {{ord.date | date :'short'}}
+            </td>
+        </tr>
+    </table>
+</div>
